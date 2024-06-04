@@ -109,13 +109,13 @@ dtype('float64')
 Find the geometric median, taking the last axis as the number of observations.
 ```{python}
 >>> import hdmedians as hd
->>> np.array(hd.geomedian(X))
+>>> hd.geomedian(X)
 array([ 1.0733,  0.8974,  1.1935,  0.9122,  0.9975,  1.3422])
 ```
 
 Take the first axis as the number of observations.
 ```{python}
->>> np.array(hd.geomedian(X, axis=0))
+>>> hd.geomedian(X, axis=0)
 array([ 1.4581,  1.6377,  0.7147,  1.1257,  1.0493, -0.091 ,  1.7907,  1.4168,  0.9587,  0.6195])
 ```
 
