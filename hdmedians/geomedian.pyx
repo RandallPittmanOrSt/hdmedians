@@ -400,10 +400,10 @@ cpdef geomedian(floating[:, :] X, size_t axis=1, floating eps=1e-8,
     returned.
     """
     if axis == 0:
-        return geomedian_axis_zero(X, eps, maxiters)
+        return np.asarray(geomedian_axis_zero(X, eps, maxiters))
 
     if axis == 1:
-        return geomedian_axis_one(X, eps, maxiters)
+        return np.asarray(geomedian_axis_one(X, eps, maxiters))
         
     raise IndexError("axis {} out of bounds".format(axis)) 
 
@@ -426,7 +426,7 @@ cpdef nangeomedian(floating[:, :] X, size_t axis=1, floating eps=1e-7,
         elif ngood < 3:
             return np.nanmedian(X, axis=axis)
         else:
-            return nangeomedian_axis_zero(X, eps, maxiters)
+            return np.asarray(nangeomedian_axis_zero(X, eps, maxiters))
 
     if axis == 1:
         ngood = np.count_nonzero(~np.isnan(X).any(axis=0))
@@ -435,6 +435,6 @@ cpdef nangeomedian(floating[:, :] X, size_t axis=1, floating eps=1e-7,
         elif ngood < 3:
             return np.nanmedian(X, axis=axis)
         else:
-            return nangeomedian_axis_one(X, eps, maxiters)
+            return np.asarray(nangeomedian_axis_one(X, eps, maxiters))
 
     raise IndexError("axis {} out of bounds".format(axis)) 
